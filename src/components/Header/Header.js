@@ -1,6 +1,6 @@
 import React from "react";
 import { useHistory } from "react-router";
-import { Div } from "./styled";
+import { Div, IrPokedex } from "./styled";
 import { goToPokedexPage } from "../../Router/Coordinator";
 
 const Header = () => {
@@ -8,9 +8,11 @@ const Header = () => {
 
   return (
     <Div>
-      <h1>Lista de Pokémons</h1>
+      <h2>Lista de Pokémons</h2>
 
-      <a onClick={() => goToPokedexPage(history)}>Ir para Pokédex</a>
+      <IrPokedex onClick={() => goToPokedexPage(history)}>
+        Ir para Pokédex
+      </IrPokedex>
     </Div>
   );
 };

@@ -1,5 +1,11 @@
 import styled from "styled-components";
 
-export const H1 = styled.h1`
-  color: #222e50;
+export const BtnDetails = styled.a`
+  text-decoration: underline;
+  cursor: pointer;
+
+  &:hover {
+    text-decoration: underline;
+    text-decoration-thickness: 0.2em;
+  }
 `;

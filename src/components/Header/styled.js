@@ -8,3 +8,14 @@ export const Div = styled.div`
   justify-content: space-around;
   padding: 1em 0.5em;
 `;
+
+export const IrPokedex = styled.a`
+  cursor: pointer;
+  text-decoration: underline;
+
+  &:hover {
+    text-decoration: underline;
+    text-decoration-thickness: 0.2em;
+    // text-decoration-color: red;
+  }
+`;
