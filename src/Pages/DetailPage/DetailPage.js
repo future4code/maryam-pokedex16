@@ -1,11 +1,18 @@
 import React from "react";
 import { Titulo, OnCard, Card1, Card2, Card3, Card4 } from "./styled";
+import { goToPokedexPage } from "../../Router/Coordinator";
+import { useHistory } from "react-router";
+import { BotaoVoltar } from "./styled";
 
 const DetailPage = () => {
+  const history = useHistory();
+
   return (
     <div>
       <Titulo>Detalhes</Titulo>
-      <BotaoVoltar onClick={() => this.props.changePage("PokedexPage")}>Voltar para Pokedex</BotaoVoltar>
+      <BotaoVoltar onClick={() => goToPokedexPage(history)}>
+        Voltar para Pokedex
+        </BotaoVoltar>
       <div>
         <OnCard>
           Imagens
