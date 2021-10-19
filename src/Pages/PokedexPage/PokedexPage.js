@@ -1,7 +1,10 @@
-import React from "react";
+import React, { useContext } from "react";
+import { ContextPoke } from "../../context/context";
 
 const PokedexPage = () => {
-  return <di>PokedexPage</di>;
+  const pokedex = useContext(ContextPoke);
+  console.log(pokedex);
+  return <div>PokedexPage</div>;
 };
 
 export default PokedexPage;

@@ -1,18 +1,27 @@
 import React from "react";
-import { Titulo, OnCard, Card1, Card2, Card3, Card4 } from "./styled";
+import {
+  Titulo,
+  OnCard,
+  Card1,
+  Card2,
+  Card3,
+  Card4,
+  BotaoVoltar,
+} from "./styled";
 
 const DetailPage = () => {
   return (
     <div>
       <Titulo>Detalhes</Titulo>
-      <BotaoVoltar onClick={() => this.props.changePage("PokedexPage")}>Voltar para Pokedex</BotaoVoltar>
+      <BotaoVoltar onClick={() => this.props.changePage("PokedexPage")}>
+        Voltar para Pokedex
+      </BotaoVoltar>
       <div>
         <OnCard>
           Imagens
           {/* <Card1>
             <img></img>
           </Card1> */}
-
           <Card2>
             Eu sou uma imagem
             <img></img>
