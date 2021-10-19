@@ -5,6 +5,7 @@ const DetailPage = () => {
   return (
     <div>
       <Titulo>Detalhes</Titulo>
+      <BotaoVoltar onClick={() => this.props.changePage("PokedexPage")}>Voltar para Pokedex</BotaoVoltar>
       <div>
         <OnCard>
           Imagens
