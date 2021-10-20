@@ -1,8 +1,9 @@
 import React from "react";
-import { Titulo, OnCard, Card1, Card2, Card3, Card4 } from "./styled";
+import { Titulo, OnCard, Card1, Card2, Card3, Card4, } from "./styled";
 import { goToPokedexPage } from "../../Router/Coordinator";
 import { useHistory } from "react-router";
 import { BotaoVoltar } from "./styled";
+
 
 const DetailPage = () => {
   const history = useHistory();
@@ -15,23 +16,22 @@ const DetailPage = () => {
         </BotaoVoltar>
       <div>
         <OnCard>
-          Imagens
+          {/* Imagens */}
           {/* <Card1>
             <img></img>
           </Card1> */}
 
           <Card2>
-            Eu sou uma imagem
+            
             <img></img>
           </Card2>
-        </OnCard>
-
-        <Card3>Poderes</Card3>
+          <Card3>Poderes</Card3>
 
         <Card4>
           <h2></h2>
           <div>Principais Ataques</div>
         </Card4>
+        </OnCard>        
       </div>
     </div>
   );
