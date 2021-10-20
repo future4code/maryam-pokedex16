@@ -1,19 +1,20 @@
-import React, { useState } from "react";
+import React, { useContext } from "react";
 import Header from "../../components/Header/Header";
 import useRequestData from "../../hooks/useRequestData";
 import PokeCard from "../../components/PokeCard/PokeCard";
 import { BASE_URL } from "../../constantes/url";
 import { PageCard } from "./styled";
 import { goToPokedexPage } from "../../Router/Coordinator";
+import { ContextPoke } from "../../context/ContextPoke";
 
 const HomePage = () => {
-  const [pokedex, setPokedex] = useState([]);
+  const {pokedex, setPokedex} = useContext(ContextPoke)
 
   const pokeData = useRequestData({}, `${BASE_URL}/pokemon?limit=0&offset=0`);
   //console.log(pokeData);
 
   const addToPokedex = (poke) => {
-    const position = pokedex.findIndex((item) => {
+    const position = pokedex && pokedex.findIndex((item) => {
       return poke.name === item.name;
     });
 
@@ -22,12 +23,10 @@ const HomePage = () => {
       newPokedex.push({ ...poke, amount: 1 });
       alert(`Pokemon ${poke.name} adicionado`);
       setPokedex(newPokedex);
-      localStorage.setItem("pokedexKey", JSON.stringify(pokedex));
     } else {
       newPokedex[position].amount += 1;
       alert(`Pokemon ${poke.name} adicionado novamente`);
       setPokedex(newPokedex);
-      localStorage.setItem("pokedexKey", JSON.stringify(pokedex));
     }
   };
 

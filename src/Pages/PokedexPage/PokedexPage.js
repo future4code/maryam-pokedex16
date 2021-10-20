@@ -1,14 +1,15 @@
 import React, { useContext, useEffect, useState } from "react";
-import { ContextPoke } from "../../context/context";
+import { ContextPoke } from "../../context/ContextPoke";
 import PokedexCard from "../../components/PokedexCard/PokedexCard";
 import Header from "../../components/Header/Header";
-import { PageCard } from "./styled";
 import { goToHomePage } from "../../Router/Coordinator";
+import { PageCard } from "../HomePage/styled";
 
 const PokedexPage = () => {
-  var storedPokedex = localStorage.getItem("pokedexKey");
-  var pokedex = JSON.parse(storedPokedex);
-  
+  const { pokedex, setPokedex } = useContext(ContextPoke);
+
+  useEffect(() => {}, [pokedex]);
+
   const pokeRemove = (itemToRemove) => {
     const position = pokedex.findIndex((item) => {
       return item.id === itemToRemove.id;
@@ -21,11 +22,11 @@ const PokedexPage = () => {
     } else {
       newpokedex[position].amount -= 1;
     }
-
-    localStorage.setItem("pokedexKey", JSON.stringify(newpokedex));
-    console.log(newpokedex);
+    setPokedex(newpokedex);
+    //console.log(pokedex);
   };
-  const getAllPokemons = pokedex.length > "0" ? (
+
+  const getAllPokemons = pokedex ? (
     pokedex.map((item, index) => {
       return (
         <PokedexCard
