@@ -27,7 +27,7 @@ export const BtnContainer = styled.div`
   width: 180px;
 `;
 
-export const BtnPokedex = styled.button`
+export const BtnRemove = styled.button`
   margin: 0;
   &:hover {
     text-decoration-thickness: 0.2em;
@@ -38,6 +38,6 @@ export const BtnDetails = styled.button`
   cursor: pointer;
 
   &:hover {
-     text-decoration-thickness: 0.2em;
+    text-decoration-thickness: 0.2em;
   }
 `;
