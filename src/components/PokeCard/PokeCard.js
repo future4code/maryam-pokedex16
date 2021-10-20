@@ -1,18 +1,38 @@
-import React from "react";
+import { useHistory } from "react-router";
+import {
+  BtnDetails,
+  CardContainer,
+  PokeImage,
+  PokeName,
+  BtnContainer,
+  BtnPokedex,
+} from "./styled";
 
-const PokeCard = () => {
+import { goToDetailPage } from "../../Router/Coordinator";
+import useRequestData from "../../hooks/useRequestData";
+import { BASE_URL } from "../../constantes/url";
+
+const PokeCard = (props) => {
+  const history = useHistory();
+  const pokeImg = useRequestData("", `${BASE_URL}/pokemon/${props.name}`);
+  //console.log(pokeImg.sprites.front_default);
+
   return (
-    <div>
-      <img alt="imagem do pokemon"/>
-      <p>Pokemon name</p>
-      <button>
-          Adiciona à Pokedex
-      </button>
-      <button>
-          Detalhes
-      </button>
-    </div>
+    // <ContextPoke.Provider>
+    <CardContainer>
+      <PokeImage
+        alt={props.name}
+        src={pokeImg ? pokeImg.sprites.front_default : <p>Carregando...</p>}
+      />
+      <PokeName>{props.name}</PokeName>
+      <BtnContainer>
+        <BtnPokedex onClick={props.addToPokedex}>Adicionar a Pokédex</BtnPokedex>
+        <BtnDetails onClick={() => goToDetailPage(history)}>
+          Sobre este Pokémon
+        </BtnDetails>
+      </BtnContainer>
+    </CardContainer>
   );
 };
 
-export default PokeCard
+export default PokeCard;

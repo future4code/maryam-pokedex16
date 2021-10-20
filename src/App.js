@@ -1,5 +1,7 @@
 import Router from "./Router/Router";
 import { createGlobalStyle } from "styled-components";
+import React, { useState } from "react";
+import { ContextPoke } from "./context/ContextPoke";
 
 const GlobalStyle = createGlobalStyle`
   * {
@@ -19,11 +21,13 @@ const GlobalStyle = createGlobalStyle`
 `;
 
 const App = () => {
+  const [pokedex, setPokedex] = useState([]);
+
   return (
-    <div>
+    <ContextPoke.Provider value={{ pokedex, setPokedex }}>
       <GlobalStyle />
       <Router />
-    </div>
+    </ContextPoke.Provider>
   );
 };
 
