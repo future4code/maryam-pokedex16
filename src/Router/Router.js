@@ -12,7 +12,7 @@ const Router = () => {
           <HomePage />
         </Route>
 
-        <Route exact path="/detail">
+        <Route exact path="/detail/:pokeName">
           <DetailPage />
         </Route>
 
