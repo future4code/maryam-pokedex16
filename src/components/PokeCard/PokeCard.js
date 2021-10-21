@@ -15,7 +15,7 @@ import { BASE_URL } from "../../constantes/url";
 const PokeCard = (props) => {
   const history = useHistory();
   const pokeImg = useRequestData("", `${BASE_URL}/pokemon/${props.name}`);
-  //console.log(pokeImg.sprites.front_default);
+  console.log(props);
 
   return (
     // <ContextPoke.Provider>
@@ -26,8 +26,10 @@ const PokeCard = (props) => {
       />
       <PokeName>{props.name}</PokeName>
       <BtnContainer>
-        <BtnPokedex onClick={props.addToPokedex}>Adicionar a Pokédex</BtnPokedex>
-        <BtnDetails onClick={() => goToDetailPage(history)}>
+        <BtnPokedex onClick={props.addToPokedex}>
+          Adicionar a Pokédex
+        </BtnPokedex>
+        <BtnDetails onClick={() => goToDetailPage(history, props.name)}>
           Sobre este Pokémon
         </BtnDetails>
       </BtnContainer>

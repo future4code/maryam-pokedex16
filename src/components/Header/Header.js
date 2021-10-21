@@ -8,7 +8,7 @@ const Header = (props) => {
 
   return (
     <Div>
-      <h2>Lista de Pokémons</h2>
+      <h2>{props.title}</h2>
 
       <IrPokedex onClick={() => props.Function(history)}>
         {props.Text}

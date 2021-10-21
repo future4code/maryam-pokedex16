@@ -12,11 +12,9 @@ import {
   BtnRemove,
 } from "../PokedexCard/styled";
 
-
 const PokedexCard = (props) => {
   const pokeImg = useRequestData("", `${BASE_URL}/pokemon/${props.name}`);
-  const history = useHistory()
-
+  const history = useHistory();
 
   return (
     <CardContainer>
@@ -28,7 +26,9 @@ const PokedexCard = (props) => {
       <p>Quantidade: {props.amount}</p>
       <BtnContainer>
         <BtnRemove onClick={props.onClickBuy}>Remover</BtnRemove>
-        <BtnDetails onClick={() => goToDetailPage(history)}>Detalhes</BtnDetails>
+        <BtnDetails onClick={() => goToDetailPage(history, props.name)}>
+          Detalhes
+        </BtnDetails>
       </BtnContainer>
     </CardContainer>
   );

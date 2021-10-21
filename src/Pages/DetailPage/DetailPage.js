@@ -1,42 +1,37 @@
 import React from "react";
-import {
-  Titulo,
-  OnCard,
-  Card2,
-  Card3,
-  Card4,
-  BotaoVoltar,
-  Img,
-} from "./styled";
-import { useHistory } from "react-router";
+import { OnCard, Card2, Card3, Card4, Img } from "./styled";
+import { useHistory, useParams } from "react-router";
 import { goToPokedexPage } from "../../Router/Coordinator";
 import Header from "../../components/Header/Header";
 import useRequestData from "../../hooks/useRequestData";
 import { BASE_URL } from "../../constantes/url";
 
 const DetailPage = () => {
-
+  const params = useParams();
   const history = useHistory();
-  const pokeImg = useRequestData("", `${BASE_URL}/pokemon/${4}`);
+  const pokeImg = useRequestData("", `${BASE_URL}/pokemon/${params.pokeName}`);
   console.log(pokeImg);
 
-  // const poderesMap = pokeImg.map((item ) => { 
-  //   return(
-  //     <div>
-  //       <p>{item.ability}</p>
-  //     </div>
-  //   )
-  // })
+  const poderesMap = pokeImg?.abilities?.map((item) => {
+    return (
+      <div>
+        <p>{item.ability.name}</p>
+      </div>
+    );
+  });
 
   return (
     <div>
-      <Titulo>Detalhes</Titulo>
-      <BotaoVoltar onClick={() => goToPokedexPage(history)}>
+      <Header
+        title="Detalhes"
+        Text={"Ir para Pokédex"}
+        Function={goToPokedexPage}
+      />
+      {/* <BotaoVoltar onClick={() => goToPokedexPage(history)}>
         Voltar para Pokedex
-      </BotaoVoltar>
+      </BotaoVoltar> */}
       <div>
         <OnCard>
-          
           <Card2>
             <Img
               src={
@@ -50,10 +45,7 @@ const DetailPage = () => {
             />
           </Card2>
 
-          <Card3>
-          {/* <p>{poderesMap{pokeImg.abilities.ability}</p> */}
-            {/* {poderesMap} */}
-          </Card3>
+          <Card3>{poderesMap}</Card3>
 
           <Card4>
             <h2></h2>

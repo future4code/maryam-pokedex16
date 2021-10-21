@@ -8,15 +8,17 @@ import { goToPokedexPage } from "../../Router/Coordinator";
 import { ContextPoke } from "../../context/ContextPoke";
 
 const HomePage = () => {
-  const {pokedex, setPokedex} = useContext(ContextPoke)
+  const { pokedex, setPokedex } = useContext(ContextPoke);
 
   const pokeData = useRequestData({}, `${BASE_URL}/pokemon?limit=0&offset=0`);
   //console.log(pokeData);
 
   const addToPokedex = (poke) => {
-    const position = pokedex && pokedex.findIndex((item) => {
-      return poke.name === item.name;
-    });
+    const position =
+      pokedex &&
+      pokedex.findIndex((item) => {
+        return poke.name === item.name;
+      });
 
     const newPokedex = [...pokedex];
     if (position === -1) {
@@ -45,7 +47,11 @@ const HomePage = () => {
 
   return (
     <div>
-      <Header Text={"ir para pokedex"} Function={goToPokedexPage} />
+      <Header
+        Text={"Ir para pokedex"}
+        Function={goToPokedexPage}
+        title="Lista de Pokémons"
+      />
       <PageCard>{getAllPokemons}</PageCard>
     </div>
   );

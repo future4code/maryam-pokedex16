@@ -43,7 +43,7 @@ const PokedexPage = () => {
 
   return (
     <div>
-      <Header Text={"ir para Home"} Function={goToHomePage} />
+      <Header Text={"Ir para Home"} Function={goToHomePage} title="Pokédex" />
       <PageCard>{getAllPokemons}</PageCard>
     </div>
   );
