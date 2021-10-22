@@ -9,17 +9,34 @@ import { BASE_URL } from "../../constantes/url";
 const DetailPage = () => {
   const params = useParams();
   const history = useHistory();
-  const pokeImg = useRequestData("", `${BASE_URL}/pokemon/${params.pokeName}`);
-  console.log(pokeImg);
+  const poke = useRequestData("", `${BASE_URL}/pokemon/${params.pokeName}`);
+  console.log(poke);
 
-  const poderesMap = pokeImg?.abilities?.map((item) => {
+  const pokeAbilities = poke?.abilities?.map((item, index) => {
     return (
-      <div>
-        <p>{item.ability.name}</p>
+      <div key={index}>
+        <p> {item.ability.name}</p>
       </div>
     );
   });
 
+  const pokeType = poke?.types?.map((item, index) => {
+    return (
+      <div key={index}>
+        <p>{item.type.name}</p>
+      </div>
+    );
+  });
+
+  const pokeStats = poke?.stats?.map((item, index) => {
+    return (
+      <div key={index}>
+        <p>
+          {item.stat.name}: {item.base_stat}
+        </p>
+      </div>
+    );
+  })
   return (
     <div>
       <Header
@@ -34,22 +51,23 @@ const DetailPage = () => {
         <OnCard>
           <Card2>
             <Img
-              src={
-                pokeImg ? pokeImg.sprites.front_default : <p>Carregando...</p>
-              }
+              src={poke ? poke.sprites.front_default : <p>Carregando...</p>}
             />
             <Img
-              src={
-                pokeImg ? pokeImg.sprites.back_default : <p>Carregando...</p>
-              }
+              src={poke ? poke.sprites.back_default : <p>Carregando...</p>}
             />
           </Card2>
 
-          <Card3>{poderesMap}</Card3>
+          <Card3>
+            <h3>Tipos: </h3>
+            {pokeType}
+            <h3>Abilidades: </h3>
+            {pokeAbilities}
+          </Card3>
 
           <Card4>
-            <h2></h2>
-            <div>Principais Ataques</div>
+            <h3>Estatisticas: </h3>
+            <div>{pokeStats}</div>
           </Card4>
         </OnCard>
       </div>
