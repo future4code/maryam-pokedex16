@@ -61,7 +61,7 @@ const DetailPage = () => {
           <Card3>
             <h3>Tipos: </h3>
             {pokeType}
-            <h3>Abilidades: </h3>
+            <h3>Habilidades: </h3>
             {pokeAbilities}
           </Card3>
 
