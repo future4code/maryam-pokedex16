@@ -5,7 +5,7 @@ Nome dos integrantes:
 - Marcus Silva
 - Emilly Santiago
 
-Link do Surge: http://dynamic-comfort.surge.sh/
+Link do Surge: https://annoying-selection.surge.sh/
 
 Link do Trello: https://trello.com/b/9O0xmhRk/projeto-pok%C3%A9dex
 
