@@ -15,7 +15,7 @@ import { BASE_URL } from "../../constantes/url";
 const PokeCard = (props) => {
   const history = useHistory();
   const pokeImg = useRequestData("", `${BASE_URL}/pokemon/${props.name}`);
-  console.log(props);
+  //console.log(props);
 
   return (
     // <ContextPoke.Provider>

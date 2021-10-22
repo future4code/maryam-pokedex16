@@ -40,32 +40,30 @@ export const Img = styled.img`
 
 export const Card3 = styled.a`
   display: flex;
-  justify-content: center;
+  flex-direction: column;
+  justify-content: space-evenly;
 
-  justify-items: center;
   background-color: #ff9933;
   margin-top: 50px;
   align-items: center;
   border-radius: 10px;
-  padding: 130px 200px 100px;
+  padding: 50px 150px 50px;
 
-  width: 50px;
   left: 100px;
   height: 400px;
   margin-inline-end: 20px;
 `;
 export const Card4 = styled.a`
   display: flex;
-  justify-content: center;
-  justify-items: left;
+  flex-direction: column;
+  justify-content: space-around;
+  align-items: center;
   background-color: #ff9933;
 
   border-radius: 10px;
-  padding: 130px 200px 100px;
+  padding: 50px 150px 50px;
   margin-top: 50px;
 
-  width: 50px;
-  left: 100px;
   height: 400px;
   margin-inline-end: 20px;
 `;
