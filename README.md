@@ -1,9 +1,9 @@
 # POKEDEX
 
 Nome dos integrantes: 
-- Geisy Lopes
-- Marcus Silva
-- Emilly Santiago
+- Geisy Lopes .
+- Marcus Silva .
+- Emilly Santiago .
 
 Link do Surge: https://annoying-selection.surge.sh/
 
